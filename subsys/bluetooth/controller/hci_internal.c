@@ -1704,6 +1704,11 @@ static uint8_t vs_cmd_put(uint8_t const *const cmd, uint8_t *const raw_event_out
 		return sdc_hci_cmd_vs_conn_anchor_point_update_event_report_enable(
 		(sdc_hci_cmd_vs_conn_anchor_point_update_event_report_enable_t const *)cmd_params);
 #endif
+#if defined(CONFIG_BT_CTLR_PHY_CODED)
+    case SDC_HCI_OPCODE_CMD_VS_SWITCH_TO_CODED_PHY:
+      return sdc_hci_cmd_vs_switch_to_coded_phy(
+		(sdc_hci_cmd_vs_switch_to_coded_phy_t const*)cmd_params);
+#endif
 	default:
 		return BT_HCI_ERR_UNKNOWN_CMD;
 	}

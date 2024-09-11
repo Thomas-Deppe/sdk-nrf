@@ -340,3 +340,10 @@ int hci_vs_sdc_conn_anchor_point_update_event_report_enable(
 				 params,
 				 sizeof(*params));
 }
+
+int hci_vs_sdc_switch_to_coded_phy(const sdc_hci_cmd_vs_switch_to_coded_phy_t *params)
+{
+	return hci_vs_cmd_no_rsp(SDC_HCI_OPCODE_CMD_VS_SWITCH_TO_CODED_PHY,
+				 params,
+				 sizeof(*params));
+}
