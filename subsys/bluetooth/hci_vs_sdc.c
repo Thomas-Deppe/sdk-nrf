@@ -319,6 +319,14 @@ int hci_vs_sdc_scan_accept_ext_adv_packets_set(
 				 sizeof(*params));
 }
 
+int sdc_hci_cmd_vs_scan_phy_options_set(
+	const sdc_hci_cmd_vs_scan_phy_options_set_t *params)
+{
+	return hci_vs_cmd_no_rsp(SDC_HCI_OPCODE_CMD_VS_SCAN_PHY_OPTIONS_SET,
+				 params,
+				 sizeof(*params));
+}
+
 int hci_vs_sdc_set_role_priority(const sdc_hci_cmd_vs_set_role_priority_t *params)
 {
 	return hci_vs_cmd_no_rsp(SDC_HCI_OPCODE_CMD_VS_SET_ROLE_PRIORITY,

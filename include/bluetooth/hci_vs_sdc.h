@@ -382,6 +382,17 @@ int hci_vs_sdc_scan_channel_map_set(const sdc_hci_cmd_vs_scan_channel_map_set_t 
 int hci_vs_sdc_scan_accept_ext_adv_packets_set(
 	const sdc_hci_cmd_vs_scan_accept_ext_adv_packets_set_t *params);
 
+/** @brief Scanner phy options set.
+ *
+ * For the complete API description, see sdc_hci_cmd_vs_scan_phy_options_set().
+ *
+ * @param[in]  params Input parameters.
+ *
+ * @return 0 on success or negative error value on failure.
+ */
+int sdc_hci_cmd_vs_scan_phy_options_set(
+	const sdc_hci_cmd_vs_scan_phy_options_set_t *params);
+
 /** @brief Set priority of a BT role.
  *
  * For the complete API description, see sdc_hci_cmd_vs_set_role_priority().

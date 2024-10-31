@@ -718,6 +718,10 @@ static void vs_supported_commands(sdc_hci_vs_supported_vs_commands_t *cmds)
 	cmds->scan_channel_map_set = 1;
 	cmds->scan_accept_ext_adv_packets_set = 1;
 #endif
+
+#if defined(CONFIG_BT_OBSERVER) && defined(CONFIG_BT_CTLR_PHY_CODED)
+	cmds->scan_phy_options_set = 1;
+#endif
 }
 #endif	/* CONFIG_BT_HCI_VS */
 
@@ -1767,6 +1771,13 @@ static uint8_t vs_cmd_put(uint8_t const *const cmd, uint8_t *const raw_event_out
 		return sdc_hci_cmd_vs_scan_accept_ext_adv_packets_set(
 			(sdc_hci_cmd_vs_scan_accept_ext_adv_packets_set_t const *)cmd_params);
 #endif
+
+#if defined(CONFIG_BT_OBSERVER) && defined(CONFIG_BT_CTLR_PHY_CODED)
+	case SDC_HCI_OPCODE_CMD_VS_SCAN_PHY_OPTIONS_SET:
+		return sdc_hci_cmd_vs_scan_phy_options_set(
+			(sdc_hci_cmd_vs_scan_phy_options_set_t const *)cmd_params);
+#endif
+
 	case SDC_HCI_OPCODE_CMD_VS_SET_ROLE_PRIORITY:
 		return sdc_hci_cmd_vs_set_role_priority(
 			(sdc_hci_cmd_vs_set_role_priority_t const *) cmd_params);
