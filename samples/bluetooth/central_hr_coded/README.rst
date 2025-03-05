@@ -27,6 +27,9 @@ The sample demonstrates a Bluetooth® LE Central role functionality by scanning 
 See :ref:`ug_ble_controller` for more information.
 It then establishes a connection to the first Peripheral device in range.
 You can use it together with the :ref:`peripheral_hr_coded` sample.
+The sample enables the :kconfig:option:`CONFIG_BT_EXT_ADV_CODING_SELECTION` Kconfig option to use the Advertising Coding Selection Host feature to provide more detailed information on the advertisers primary and secondary PHYs.
+This allows the application to report whether the LE Coded PHY S=2 or S=8 Coding Schemes were used as the advertisers primary and secondary PHYs.
+When the :kconfig:option:`CONFIG_BT_EXT_ADV_CODING_SELECTION` Kconfig option is disabled the application will only indicate that LE Coded PHY was used, with no detailed information on the Coding Scheme.
 
 Building and running
 ********************
@@ -48,7 +51,7 @@ After programming the sample to your development kit, you can test it by connect
 #. Wait until the Coded advertiser is detected by the Central.
    In the terminal window, check for information similar to the following::
 
-      Filters matched. Address: xx.xx.xx.xx.xx.xx (random) connectable: yes
+      Filters matched. Address: xx.xx.xx.xx.xx.xx (random) connectable: yes Primary PHY: S=8 Coded Secondary PHY S=8 Coded
       Connection pending
       Connected: xx.xx.xx.xx.xx.xx (random), tx_phy 4, rx_phy 4
       The discovery procedure succeeded

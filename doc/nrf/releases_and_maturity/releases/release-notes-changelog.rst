@@ -339,6 +339,10 @@ Bluetooth samples
 
   * Added reconnection to bonded devices based on their address.
 
+* :ref:`central_hr_coded` and :ref:`peripheral_hr_coded` samples:
+
+  * Added the Advertising Coding Selection feature to the samples.
+
 Bluetooth Mesh samples
 ----------------------
 
